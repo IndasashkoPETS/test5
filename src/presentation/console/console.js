@@ -1,12 +1,12 @@
-import { StringBuilder } from "./stringBuilder";
+import { StringBuilder } from "./stringBuilder.js";
 
 export class Console {
-    private stringBuilder : StringBuilder;
+    stringBuilder;
     constructor() {
         this.stringBuilder = new StringBuilder();
     }
 
-    public writeRandomArray() {
+    writeRandomArray() {
         console.log("\n\n___________________________Выводим 2D массив:___________________________\n\n");
         console.log(this.stringBuilder.stringifyRandomArray());
     }

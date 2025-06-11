@@ -1,16 +1,17 @@
-import { Random2DArray, RowData } from "../../app";
+
+import { Random2DArray } from "../../app/Radom2DArray.js";
 
 export class StringBuilder {
  
-    public stringifyRandomArray() : string {
+    stringifyRandomArray() {
         const rows = 10;
         const cols = 10;
         const array = new Random2DArray({ cols: cols, max: 100, min: -100, rows: rows }).convertArray();
         return this.StringlyArray(array);
     }
 
-    public StringlyArray(data : RowData[]) : string {
-        let answer : string = "";
+    StringlyArray(data ) {
+        let answer = "";
         for (let i = 0; i < data.length; i++) {
             let rowStr = this.stringifyRow(data[i]);
             rowStr = data[i].isMinimalValueRow ? rowStr.slice(0, -1) + "*" : rowStr;
@@ -21,7 +22,7 @@ export class StringBuilder {
         return answer;
     }
 
-    public stringifyRow(data: RowData): string {
+    stringifyRow(data) {
         let beforeValue = data.row[0];
         let rowStr = beforeValue >= 0 ? " " : "";
         for (let j = 0; j < data.row.length; j++) {

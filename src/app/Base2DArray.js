@@ -1,14 +1,13 @@
-import { RowData } from "./Domain";
 
 export class Base2DArray {
 
-    public readonly value : number[][];
-    constructor (array : number[][]) {
+    value;
+    constructor (array) {
         this.value = array;
     }
 
-    public convertArray () : RowData[] {
-        let rowDatas : RowData[] = [];
+    convertArray () {
+        let rowDatas = [];
         const minValueRow = this.findMinRow();
         for (let i = 0; i < this.value.length; i++) {
             let isMin = i === minValueRow ? true : false;
@@ -22,9 +21,9 @@ export class Base2DArray {
         return rowDatas;
     }
 
-    public findMinPositive(rowNumber : number): number | null {
-        const row: number[] = this.value[rowNumber];
-        let minPositive: number | null = null;
+    findMinPositive(rowNumber) {
+        const row = this.value[rowNumber];
+        let minPositive = null;
         for (const num of row) {
             if (num > 0 && (minPositive === null || num < minPositive)) {
                 minPositive = num;
@@ -33,7 +32,7 @@ export class Base2DArray {
         return minPositive;
     }
 
-    public findMinRow(): number {
+    findMinRow() {
         let minVal = this.value[0][0];
         let minRow = 0;
         for (let i = 0; i < this.value.length; i++) {
@@ -47,8 +46,8 @@ export class Base2DArray {
         return minRow;
     }
 
-    public calculateReplacements(rowNumber : number): number {
-        const row: number[] = this.value[rowNumber]
+    calculateReplacements(rowNumber ) {
+        const row = this.value[rowNumber]
         let replacements = 0;
         let singleDigitCounter = 0;
         let prevSign = 0;
